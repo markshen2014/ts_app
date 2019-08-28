@@ -19,7 +19,7 @@ export const StateTest = () => {
         <p>
             <button type="button"
             onClick={() => globalActions.setData("name", "Lorne")}>
-                change name2
+                change name2 
             </button>
         </p>
         

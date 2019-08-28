@@ -6,7 +6,7 @@ import { StateTest } from './test/StateTest';
  
 
 ReactDOM.render(<StateTest />, document.getElementById('root'));
-//ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<App />, document.getElementById('root')); 
 
 
  

@@ -7,6 +7,6 @@ export const addToCounter = (store, amount) => {
     store.setState({ [key]: value });
     console.log(key);
     console.log(value);
-    console.log(store.state.name);
+    console.log(store.state.name);  
   };
   
