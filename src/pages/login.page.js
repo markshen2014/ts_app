@@ -15,7 +15,9 @@ import Container from '@material-ui/core/Container';
 import { createBrowserHistory } from 'history'
 import axios from 'axios';
 import xml2js from 'xml2js';
+import urlEncoder from 'postman-url-encoder'
 //import PropTypes from 'prop-types'
+import { BuildUrl , BuildJob} from '../utils/Utils'
 
 function Copyright() {
   return (
@@ -61,11 +63,12 @@ const useStyles = makeStyles(theme => ({
 export default function SignIn() {
   const classes = useStyles();
   const history = createBrowserHistory();
-  const server = 'https://iybcons2.scrapitsoftware.com:4443/iyb/php/iyb.php?';
+   
   const oper_code='~01~~01~02~~02~0301~~03'
   let company_str = ''
   let job_str = 'job_code=validate_login'
   let supplier_str = ''
+  
   let url_str = '' 
   let loginok = ''
 
@@ -88,10 +91,14 @@ export default function SignIn() {
     company_str = 'company_code=' + userForm.user;
     supplier_str = 'supplier_code=' + userForm.pass;
 
-    url_str = server + oper_code + "&" + company_str + "&" + job_str + "&" + supplier_str;
+    url_str =  BuildUrl([ oper_code, company_str, job_str, supplier_str])    
+
+   // const job_test =  BuildJob(['a','b','c x'])
+   // console.log(job_test)
+    
     let res = await axios.get(url_str);
-    let xmlData =  res.data;
-   // console.log(xmlData);
+    let xmlData =  res.data;     
+    
 
     xml2js.parseString(xmlData, function (err, result) {
 
@@ -105,6 +112,7 @@ export default function SignIn() {
 
          history.replace('/mainmenu',{})
          history.go(0)
+
      }else{
 
         setErrorStr('error')

@@ -1,8 +1,14 @@
 import React from 'react'
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 const SiteMain = () =>{
-  return(      
-      <h1>Welcome to TS</h1>
+  return( 
+    <Container component="main" maxWidth="xs">   
+      <Typography component="h1" variant="h5" >
+          Welcome
+        </Typography>
+     </Container> 
   )
 
 }
