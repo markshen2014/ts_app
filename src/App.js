@@ -2,9 +2,11 @@ import React from 'react';
 import SignIn from './pages/login.page' 
 import SiteMain from './pages/SiteMain.page'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
+import LocalStorageTest from './test/LocalStorageTest'
 
 const App = () => {
   return (
+    
     <Router>
     <div className="App">
        <Route exact path="/" component={SignIn} />
@@ -12,6 +14,12 @@ const App = () => {
       
     </div>
     </Router>
+   /*
+   <>
+   <LocalStorageTest />
+   </>
+    */
+
   );
 
 }

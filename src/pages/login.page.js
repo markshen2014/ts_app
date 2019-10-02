@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -61,6 +61,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignIn() {
+
+  useEffect(() => {    
+    localStorage.setItem('login', '');
+  },[]);
+
   const classes = useStyles();
   const history = createBrowserHistory();
    
@@ -112,6 +117,7 @@ export default function SignIn() {
 
          history.replace('/mainmenu',{})
          history.go(0)
+         localStorage.setItem('login', 'ok');
 
      }else{
 
