@@ -1,10 +1,10 @@
-import React , {useEffect } from 'react';
+import React , {  useEffect } from 'react';
 
 export default props => {
 
     return(
         <div>
-               ticket
+               process
        </div>
     )
   
